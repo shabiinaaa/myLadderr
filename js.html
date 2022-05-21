@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lecture 05 events type 1 & 2</title>
+
+    <script src="js.js" type="text/javascript"></script>
+
+  </head>
+
+  <body>
+       <form action="getJobs.php" method="post">
+        <input type="text" id="txt1">
+        <p id="para1">Hello<br/></p>
+
+        <input type="checkbox" name="Preferences[]" onclick="myFunc()" value="Applied">
+        <label for="appliedJobs">Applied</label>    
+        <input type="checkbox" name="Preferences[]" onclick="myFunc()" value="Interested">
+        <label for="interestedJobs">Saved</label>
+         
+        <button type="submit" id="btn1" onclick="myFunction()">submit</button>
+      
+       </form>
+
+       <div class="SearchbarDivStyle">
+        <form method="get" action="jss.php" id="searchbarForm">
+          <input type="text" class="searchbarStyle" id="searchbar" name="searchbar">
+        </form>
+        <input type="submit" onclick="searchBtn()" value="Submit">
+        
+      </div>
+      
+  </body>
+</html>
