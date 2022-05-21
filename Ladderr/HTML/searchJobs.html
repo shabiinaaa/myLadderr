@@ -43,125 +43,110 @@
             <!-- #region Preference-->
             <label>Preference</label>
             <div class="filterGridInnerDiv">
-                <div>
-                    <form method="get" action="../PHP/searchJobs.php">
+                <form method="get" action="../PHP/searchJobs.php" name="preferenceForm">
+                    <div>
                         <input type="checkbox" name="Preferences[]" id="appliedJobs" value="Applied">
                         <label for="appliedJobs">Applied</label>
-                    </form>
-                </div>
-                <div>
-                    <form method="get" action="../PHP/searchJobs.php">
+                    </div>
+                    <div>
                         <input type="checkbox" name="Preferences[]" id="interestedJobs" value="Interested">
                         <label for="interestedJobs">Saved</label>
-                    </form>
-                    
-                </div>
+                    </div>
+                </form>
             </div>  
             <!-- #endregion -->
-        
             <hr width="100%">
-        
             <!-- #region JobType-->
             <label>Job Type</label>
             <div class="filterGridInnerDiv">
-                <div>
-                    <input type="checkbox" name="JobType" id="fulltime" value="fulltime">
-                    <label for="fulltime">Full-Time</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="JobType" id="parttime" value="parttime">
-                    <label for="parttime">Part-Time</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="JobType" id="internship" value="internship">
-                    <label for="internship">Internship</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="JobType" id="contract" value="contract">
-                    <label for="contract">Contract</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="JobType" id="freelance" value="freelance">
-                    <label for="freelance">Freelance</label>
-                </div>
+                <form method="get" action="../PHP/searchJobsFilter.php" name="JobTypeForm">       
+                    <div>
+                        <input type="checkbox" name="JobType" id="fulltime" value="fulltime" onclick="onClickAll(parentElement.parentElement)">
+                        <label for="fulltime">Full-Time</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="JobType" id="parttime" value="parttime" onclick="onClickAll(parentElement.parentElement)">
+                        <label for="parttime">Part-Time</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="JobType" id="internship" value="internship" onclick="onClickAll(parentElement.parentElement)">
+                        <label for="internship">Internship</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="JobType" id="contract" value="contract" onclick="onClickAll(parentElement.parentElement)">
+                        <label for="contract">Contract</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="JobType" id="freelance" value="freelance" onclick="onClickAll(parentElement.parentElement)">
+                        <label for="freelance">Freelance</label>
+                    </div>
+                </form>
             </div>
             <!-- #endregion -->
-
             <hr width="100%">
 
             <!-- #region Location-->
             <label>Location</label>
             <div class="filterGridInnerDiv" id="LocationDiv">
-                <div>
-                    <input type="checkbox" name="location" id="remote" value="remote">
-                    <label for="remote">Remote</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="location" id="Western" value="western">
-                    <label for="Western">Western</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="location" id="central" value="central">
-                    <label for="central">Central</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="location" id="sabaragamuwa" value="sabaragamuwa">
-                    <label for="Sabaragamuwa">Sabaragamuwa</label>
-                </div>
+                <form action="../PHP/searchJobs.php"  method="get" name="LocationForm">
+                    <select name="location" id="locationSelect" class="experianceSelectStyle">
+                        <option value="">none</option>
+                        <option value="Kegalle">Kegalle</option>
+                        <option value="Colombo">Colombo</option>
+                    </select>
+                </form>
             </div>
             <!-- #endregion -->
-            
             <hr width="100%">
-
             <!-- #region Date Posted-->
             <label>Date Posted</label>
             <div class="filterGridInnerDiv" id="LocationDiv">
-                <div>
-                    <input type="radio" name="datePosted" id="past1Hour">
-                    <label for="past1Hour">Last 1 Hour</label>
-                </div>
-                <div>
-                    <input type="radio" name="datePosted" id="past1Day">
-                    <label for="past1Day">Last 1 Day</label>
-                </div>
-                <div>
-                    <input type="radio" name="datePosted" id="past1Week">
-                    <label for="past1Week">Past 1 Week</label>
-                </div>
-                <div>
-                    <input type="radio" name="datePosted" id="past1Month">
-                    <label for="past1Month">Past 1 Month</label>
-                </div>
-                <div>
-                    <input type="radio" name="datePosted" id="past3Month">
-                    <label for="past3Month">Past 3 Months</label>
-                </div>
-                <div>
-                    <input type="radio" name="datePosted" id="alltime">
-                    <label for="alltime">All time</label>
-                </div>
+                <form action="../PHP/searchJobs.php"  method="get" name="DatePostedForm">
+                    <div>
+                        <input type="radio" name="datePosted" id="past1Hour">
+                        <label for="past1Hour">Last 1 Hour</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="datePosted" id="past1Day">
+                        <label for="past1Day">Last 1 Day</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="datePosted" id="past1Week">
+                        <label for="past1Week">Past 1 Week</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="datePosted" id="past1Month">
+                        <label for="past1Month">Past 1 Month</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="datePosted" id="past3Month">
+                        <label for="past3Month">Past 3 Months</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="datePosted" id="alltime">
+                        <label for="alltime">All time</label>
+                    </div>
+                </form>
             </div>
             <!-- #endregion -->
-        
             <hr width="100%">
-
             <!-- #region Experiance-->
             <label>Experiance</label>
             <div class="filterGridInnerDiv">
-                <select name="experiance" id="experianceSelect" class="experianceSelectStyle">
-                    <option value="">none</option>
-                    <option value="No Experiance">No Experiance</option>
-                    <option value="0-1 year">0-1 year</option>
-                    <option value="1-3 years">1-3 years</option>
-                    <option value="3-5 years">3-5 years</option>
-                    <option value="10 years">10 years</option>
-                    <option value="more than 10">more than 10</option>
-                </select>
+                <form action="../PHP/searchJobs.php"  method="get" name="ExperianceForm">
+                    <select name="experiance" id="experianceSelect" class="experianceSelectStyle">
+                        <option value="">none</option>
+                        <option value="No Experiance">No Experiance</option>
+                        <option value="0-1 year">0-1 year</option>
+                        <option value="1-3 years">1-3 years</option>
+                        <option value="3-5 years">3-5 years</option>
+                        <option value="10 years">10 years</option>
+                        <option value="more than 10">more than 10</option>
+                    </select>
+                </form>
             </div>
             <!-- #endregion -->
-
             <hr width="100%">
-
             <!-- #region Salary-->
             <label>Salary</label>
             <div class="rangeSelectedDiv">
@@ -170,7 +155,9 @@
                 <label>&nbsp; LKR/hour</label>
             </div>
             <div class="filterGridInnerDiv">
-                <input type="range" name="salary" id="salaryRange" min="5" max="100" value="100">
+                <form action="../PHP/searchJobs.php" method="get" name="SalaryForm">
+                    <input type="range" name="salary" id="salaryRange" min="5" max="100" value="100">
+                </form>
             </div>
             <div class="rangeMinMaxLabelDiv">
                 <div>
@@ -183,12 +170,13 @@
                 </div>
             </div>
             <!-- #endregion -->
-
             <hr width="100%">
 
             <!-- #region Filter-->
             <div class="btnDivStyle">
-                <input type="submit" name="filterBtn" value="Filter">
+                <form action="../PHP/searchJobs.php"  method="get" name="FilterBtnForm">
+                    <input type="submit" name="filterBtn" value="Filter">
+                </form>
             </div>
             <!-- #endregion -->
 
@@ -214,7 +202,7 @@
         
             <!-- #region Jobs-->
                 <div id="AllJobsDiv" class="AllJobsDiv" >
-                    <div id="aJobDiv1" class="aJobDiv"  data-jobID="none">
+                    <div id="aJobDiv1" class="aJobDiv"  data-jobID="none" >
                         <form action="../PHP/searchJobs.php" method="get" name="ajobform1">
                             <input type="submit" name="SaveJob" id="SaveJob" 
                                 value="Save" class="saveView" onclick="saveJob(parentElement, parentElement.parentElement)">

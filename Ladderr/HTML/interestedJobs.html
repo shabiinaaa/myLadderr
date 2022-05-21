@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interested Jobs  - Ladderr</title>
+    <link rel="stylesheet" href="../CSS/interestedJobs.css">
+    <script src="../JS/interestedJobs.js"></script>
+</head>
+<body onload="loaded()">
+    <div class="firstRowDiv">
+        <!-- #region Bread Crumb-->
+        <div class="breadCrumbStyle">
+            <a href="Home.html">Home > &nbsp;</a>  
+            <a href="SeekerProfile.html">Profile > &nbsp;</a> 
+            <a href="MyJobs.html">My Jobs</a> 
+        </div>
+        <!-- #endregion -->
+
+        <!-- #region Page title-->
+        <div class="PageTitleStyle">
+            <label>My Jobs</label>
+            <label id="SearchText" name="SearchText"></label>
+        </div>
+        <!-- #endregion -->
+
+        
+        <div class="AppliedSaved">
+            <form method="get" action="../PHP/searchJobs.php" name="searchbarForm">
+                <input type="radio" value="Applied Jobs" name="applysaveRadio" onclick="ApplySaveFunc(this)">
+                <label for="applysaveRadio">Applied Jobs</label>
+                <input type="radio" value="Saved Jobs" name="applysaveRadio" checked="true" onclick="ApplySaveFunc(this)">
+                <label for="applysaveRadio"> Saved Jobs</label>
+            </form>
+        </div>
+        <form method="get" action="../PHP/interestedJobs.php" name="triggerForm" id="triggerForm"></form>
+    </div>
+
+    <div class="secondRowDiv">
+        <div id="AllJobsDiv" class="AllJobsDiv" >
+            <div id="aJobDiv1" class="aJobDiv" data-jobID="none" >
+                <label id="title"></label>
+                <label id="companyName"></label>
+                <label id="jobType"></label>
+                <label id="location"></label>
+                <input type="submit" name="ViewJob" id="ViewJob" 
+                    value="View Details" class="saveView" onclick="goToJobPage(parentElement)">
+
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

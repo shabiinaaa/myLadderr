@@ -18,12 +18,9 @@ function displayResults(js, searchText)
         document.getElementById("SearchText").innerHTML = "\""+searchText+"\"";
     }
 
-    for (var key in myjson) 
-    {
-        if (myjson.hasOwnProperty(key)) 
-        {   
-            console.log(myjson[key]);
-            
+    for (var key in myjson) {
+        if (myjson.hasOwnProperty(key)) {   
+            //console.log(myjson[key]); 
             let node;
             if(count > 1){
                 myname = "aJobDiv"+(count-1);
@@ -91,14 +88,21 @@ function setCookie(cookieName, cookieValue) {
     //console.log(expires);
 }
 
+function CountHowManyJob(){
+    const AllJobsDivChilds = document.getElementById("AllJobsDiv").children;
+    var i = AllJobsDivChilds.length;
 
-function CountHowManyJobs(){
-    const AllJobsDiv = document.getElementsByClassName("AllJobsDiv").children;
-        var i = 0;
-        
-        for(var child of AllJobsDiv){
-            i++;
-            console.log(child);
-        }
-        alert(i);
+    var display;
+    if(i == 1){ display = "none"; }
+    else{ display = "flex";}
+
+    for(var child of AllJobsDivChilds){
+        console.log(child);
+        child.setAttribute("display", display);
+    }
+}
+
+function onClickAll(form){
+    const myEle = document.elementFromPoint;
+    form.submit();
 }
