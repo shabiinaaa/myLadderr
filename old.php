@@ -271,3 +271,39 @@ if(isset($_GET["searchbar"]))
     $connection->close();
 }
 ?>
+
+
+$sql = "SELECT * FROM job WHERE
+            title LIKE '%$Text%' OR 
+            location LIKE '%$Text%'  OR 
+            description LIKE '%$Text%'  OR 
+            companyName  LIKE '%$Text%' OR 
+            category LIKE '%$Text%'  OR 
+            certification LIKE '%$Text%'  OR 
+            requiredSkills LIKE '%$Text%'  OR 
+            experiances LIKE '%$Text%'  OR 
+            qaulifications LIKE '%$Text%'  OR 
+            jobType LIKE '%$Text%'  OR 
+            salary LIKE '%$Text%'  OR 
+            visibility LIKE '%$Text%'" ;
+
+    $result = $connection->query($sql);
+    $searchData = array();
+    if ($result->num_rows > 0) 
+    {
+        while($row = $result->fetch_assoc()) 
+        {
+            array_push($searchData, $row);    
+            //echo "id: " . $row["jobID"]. " - Name: " . $row["title"]. " - Description: " . $row["description"]. "<br>";
+        }
+        $myjson = json_encode($searchData);
+
+        $text = strval($Text);
+        echo "<script type=\"text/javascript\">displayResults($myjson, \"$Text\")</script>";
+        //echo "<br> count = ".count($searchData)."<br>";
+    }
+    else
+    {
+        echo '<script>console.log("no records"); </script>';
+    }
+    //setcookie($cookieName, $Text, time() + (86400 * 30) *30 + "/");
