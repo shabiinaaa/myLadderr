@@ -3,22 +3,27 @@ require 'connectDB.php';
 
 if(isset($_COOKIE["ViewJobID"]))
 {
-    //echo '<script>alert("Cookie")</script>';  
     if(isset($_COOKIE["regID"]))
     {
         $jobID = $_COOKIE["ViewJobID"];
-    
-        $sql = "SELECT * FROM job WHERE jobId = $jobID";
-        $result = $connection->query($sql);
-        $searchData = array();
-        if ($result->num_rows > 0) 
+        if($jobID != "none")
         {
-            echo '<script>console.log("has records"); </script>';
-            $row  = $result->fetch_assoc() ;
+            $sql = "SELECT * FROM job WHERE jobId = $jobID";
+
+            if($connection->query($sql) === TRUE)
+            {
+                $result = $connection->query($sql);
+                $searchData = array();
+                if ($result->num_rows > 0) 
+                {
+                    echo '<script>console.log("has records"); </script>';
+                    $row  = $result->fetch_assoc() ;
+                }
+                else{
+                    echo '<script>console.log("no records"); </script>';
+                } 
+            }
         }
-        else{
-            echo '<script>console.log("no records"); </script>';
-        } 
     }
     else{
         echo '<script>console.log("regID is not set")</script>';

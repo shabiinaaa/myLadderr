@@ -40,7 +40,7 @@
     <div class="secondRowDiv">
         <!-- #region Left filter grid-->
         <div class="leftFilterGridDiv">
-            <form action=""  method="get"  id="oneForm" >
+            <form action="../PHP/searchJobsFilter.php"  method="get"  id="oneForm" >
                 <!-- #region JobType-->
                 <label>Job Type</label>
                 <div class="filterGridInnerDiv">
@@ -91,11 +91,10 @@
                 <!-- #region Salary-->
                     <label>Salary</label>
                 <div class="filterGridInnerDiv">
-                    <input type="number" name="salary" id="salaryRange" class="salaryinput">
+                    <input type="number" name="salary" id="salaryRange" class="salaryinput" onchange="copyText(this)">
                 </div>
 
                 <div class="rangeSelectedDiv">
-
                     <label>>&nbsp;&nbsp;</label>
                     <label id="SalaryText"></label>
                     <label>&nbsp;&nbsp;LKR</label>

@@ -2,23 +2,7 @@
 require '../HTML/searchJobs.html';
 require 'connectDB.php';
 
-if(!isset($_GET["searchbar"]))
-{
-    $sql = "SELECT * FROM job";
-    $result = $connection->query($sql);
-    $searchData = array();
-    if ($result->num_rows > 0) {
-        echo '<script>console.log("has records"); </script>';
-        while($row = $result->fetch_assoc()) {
-            array_push($searchData, $row);    
-        }
-        $myjson = json_encode($searchData);
-        echo "<script type=\"text/javascript\">displayResults($myjson, \"$searchText\")</script>";
-    }
-    else{
-        echo '<script>console.log("no records"); </script>';
-    }
-}
+global $data;
 
 if(isset($_GET["searchbar"]))
 {
@@ -36,14 +20,14 @@ if(isset($_GET["searchbar"]))
             array_push($searchData, $row);    
         }
         $myjson = json_encode($searchData);
+        $data = $searchData;
         echo "<script type=\"text/javascript\">displayResults($myjson, \"$searchText\")</script>";
     }
     else{
         echo '<script>console.log("no records"); </script>';
     }
 }
-
-if(isset($_COOKIE["searchText"])) 
+elseif(isset($_COOKIE["searchText"])) 
 {
     echo '<script>console.log("searchText is set")</script>';
     $searchText = $_COOKIE["searchText"];
@@ -89,7 +73,21 @@ if(isset($_COOKIE["searchText"]))
 else 
 { 
     echo '<script>console.log("searchText not set")</script>';
-
+    $sql = "SELECT * FROM job";
+    $result = $connection->query($sql);
+    $searchData = array();
+    if ($result->num_rows > 0) {
+        echo '<script>console.log("has records"); </script>';
+        while($row = $result->fetch_assoc()) {
+            array_push($searchData, $row);    
+        }
+        $myjson = json_encode($searchData);
+        $data = $searchData;
+        echo "<script type=\"text/javascript\">displayResults($myjson, \"$searchText\")</script>";
+    }
+    else{
+        echo '<script>console.log("no records"); </script>';
+    }
 }
 
 if($_GET["SaveJob"])
@@ -115,7 +113,8 @@ if($_GET["SaveJob"])
 
             $result = $connection->query($sql);
             $searchData = array();
-            if ($result->num_rows > 0) {
+            if ($result->num_rows > 0) 
+            {
                 echo '<script>console.log("has records"); </script>';
                 while($row = $result->fetch_assoc()) {
                     array_push($searchData, $row);    
@@ -150,7 +149,7 @@ if($_GET["SaveJob"])
     }   
 }
 
-
-
 ?>
+
+
 

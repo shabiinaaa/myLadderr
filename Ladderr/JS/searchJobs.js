@@ -147,3 +147,8 @@ function loaded(){
     {
     }
 }
+
+function copyText(myself){
+    const ty = document.getElementById("SalaryText");
+    ty.textContent = myself.value;
+}
