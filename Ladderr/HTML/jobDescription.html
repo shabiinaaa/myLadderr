@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Description - Ladderr</title>
+    <link rel="stylesheet" href="../CSS/jobDescription.css">
+    <script src="../JS/jobDescription.js"></script>
+</head>
+<body>
+    
+    <div class="firstRowDiv">
+        <!-- #region Bread Crumb-->
+        <div class="breadCrumbStyle">
+            <a href="Home.html">Home > &nbsp;</a>  
+            <a href="Companies.html">Jobs > &nbsp;</a> 
+            <a href="../HTML/jobDescription.html"> Job Description</a> 
+        </div>
+        <!-- #endregion -->
+
+        <!-- #region Page title-->
+        <div class="PageTitleStyle">
+            <label id="jobTitle" name="jobTitle" ></label>
+        </div>
+        <!-- #endregion -->
+
+        <form action="../PHP/jobPage.php" method="post">
+            <input type="submit" value="Apply Job" name="applyBtn">
+        </form>
+    </div>
+
+    <div class="secondRowDiv">
+        <div id="aJobDiv1" class="aJobDiv"  data-companyID="none" >
+            <div >
+                <div id="fieldList">
+                    
+                </div> 
+                <div id="dataList">
+                </div> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

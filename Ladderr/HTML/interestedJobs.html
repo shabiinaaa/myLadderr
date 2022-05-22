@@ -44,9 +44,10 @@
                 <label id="companyName"></label>
                 <label id="jobType"></label>
                 <label id="location"></label>
-                <input type="submit" name="ViewJob" id="ViewJob" 
-                    value="View Details" class="saveView" onclick="goToJobPage(parentElement)">
-
+                <form action="../PHP/jobPage.php" method="get" >
+                    <input type="submit" name="ViewJob" id="ViewJob" 
+                    value="View Details" class="saveView">
+                </form>
             </div>
         </div>
     </div>

@@ -45,7 +45,7 @@
                     <input type="radio" name="ApproveRejectRadio" value="Approved" onclick="ApproveRejectFunc(parentElement, this)">
                     <label>Approved</label>
                     <input type="radio" name="ApproveRejectRadio" value="Rejected" onclick="ApproveRejectFunc(parentElement, this)">
-                    <label>Rejected</label>
+                    <label>Not Responded</label>
                     <input type="radio" name="ApproveRejectRadio" value="All" onclick="ApproveRejectFunc(parentElement, this)">
                     <label>All</label>
                 </form>
@@ -59,9 +59,10 @@
                 <label id="companyName"></label>
                 <label id="jobType"></label>
                 <label id="location"></label>
-                <input type="submit" name="ViewJob" id="ViewJob" 
-                    value="View Details" class="saveView" onclick="goToJobPage(parentElement)">
-
+                <form action="../PHP/jobPage.php" method="get" >
+                    <input type="submit" name="ViewJob" id="ViewJob" 
+                            value="View Details" class="saveView" >
+                </form>
             </div>
         </div>
     </div>

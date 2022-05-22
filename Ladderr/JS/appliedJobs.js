@@ -1,10 +1,11 @@
-
+/*
 function goToJobPage(jobIDDiv){
 
     var jobID = jobIDDiv.getAttribute("data-jobid");
     setCookie("ViewJobID", jobID);
     location.replace("../HTML/jobPage.html");
 }
+*/
 
 function setCookie(cookieName, cookieValue) {
     const d = new Date();

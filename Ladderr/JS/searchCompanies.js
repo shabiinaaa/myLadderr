@@ -34,45 +34,45 @@ function displayResults(js, searchText)
                 const clone = node.cloneNode(true);
                 createLabels(clone);
                 clone.setAttribute("id", "aJobDiv"+(count));
-                clone.setAttribute("data-jobID", myjson[key].jobID);
+                clone.setAttribute("data-companyID", myjson[key].companyID);
                 document.getElementById("AllJobsDiv").appendChild(clone);
-                //console.log("clone "+clone.id + " " + clone.getAttribute("data-jobID"));
+                //console.log("clone "+clone.id + " " + clone.getAttribute("data-companyID"));
             }
             else{
                 myname = "aJobDiv"+count;
                 node = document.getElementById(myname);
                 createLabels(node);
-                node.setAttribute("data-jobID", myjson[key].jobID);
-                //console.log(node.id + " " + node.getAttribute("data-jobID"));
+                node.setAttribute("data-companyID", myjson[key].companyID);
+                //console.log(node.id + " " + node.getAttribute("data-companyID"));
             }
             count++;  
  
             function createLabels(mydiv){
-                const children = mydiv.children;
+            const children = mydiv.children;
                 for(var child of children){
                     switch (child.id) {
-                        case "title":
-                            child.innerHTML = myjson[key].title;
-                            break;
                         case "companyName":
                             child.innerHTML = myjson[key].companyName;
                             break;
-                        
+
                         case "location":
-                            child.innerHTML = myjson[key].location;
+                            child.innerHTML = myjson[key].headOfficeAddress;
+                            break;
+                        
+                        case "description":
+                            child.innerHTML = myjson[key].description;
                             break;
 
-                        case "jobType":
-                            child.innerHTML = myjson[key].jobType;
+                        case "estabilished year":
+                            child.innerHTML = myjson[key].establishedYear;
                             break;
-
-                        case "ViewJob":
-                            child.value = myjson[key].jobID;
-                            break;
+                    }
+                    if(child.innerHTML == "undefined"){
+                        child.innerHTML = "";
                     }
                 }
             }  
-            
+            /*
             if(myjson[key].experiances != ""){
                 experianceArray.push(myjson[key].experiances);
             }
@@ -80,8 +80,10 @@ function displayResults(js, searchText)
             if(myjson[key].location != ""){
                 locationArray.push(myjson[key].location);
             }
+            */   
         }
     }
+    /*
     let locationArray1 = [...new Set(locationArray)];
     let experianceArray1 = [...new Set(experianceArray)];
 
@@ -102,30 +104,29 @@ function displayResults(js, searchText)
         opt2.value = q;
         locationSlt.appendChild(opt2);
     }
-    
+    */
 };
 
 
 function saveJob(form, jobIDDiv)
 {
-    var jobID = jobIDDiv.getAttribute("data-jobid");
+    var jobID = jobIDDiv.getAttribute("data-companyID");
     setCookie("saveJobID", jobID);
-    form.submit();
+    //form.submit();
 }
 
-function createJobIDcookie(parentt){
-    const superParent = parentt.parentElement;
-    var jobID = superParent.getAttribute("data-jobid");
+function goToJobPage(jobIDDiv){
+
+    var jobID = jobIDDiv.getAttribute("data-companyID");
     setCookie("ViewJobID", jobID);
-    setCookie("regID", '11');
-    parentt.submit();
+    location.replace("../HTML/jobPage.html");
 }
 
 function setCookie(cookieName, cookieValue) {
     const d = new Date();
     d.setTime(d.getTime() + (86400 * 30 * 30));
     let expires = "expires="+ d.toUTCString();
-    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=../../";
+    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
     //console.log(expires);
 }
 
@@ -143,7 +144,7 @@ function CountHowManyJob(){
 }
 
 function loaded(){
-    if("none" == document.getElementById("aJobDiv1").getAttribute("data-jobID"))
+    if("none" == document.getElementById("aJobDiv1").getAttribute("data-companyID"))
     {
     }
 }
