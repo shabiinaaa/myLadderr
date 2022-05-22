@@ -1,0 +1,126 @@
+*
+{
+	padding:0;
+	margin:0;
+	box-sizing: border-box;
+}
+body /*this can change*/
+{
+	background-size:cover;
+	background-color:#FBFFFE;
+	font-family: sans-serif;
+	margin:5px;
+	
+}/**/
+.menu
+{
+	
+	background:#012A4A;
+	text-align:right;
+	width:100%;
+	height: 70px;
+	
+}
+
+.menu ul
+{
+	display :inline-flex;
+	list-style:none;
+	color:#A9D6E5;
+	
+}
+.menu li
+{
+	width :175px;
+	margin:5px;
+	padding:5px;
+	text-align:center;
+	font-size: 25px;
+}
+.menu ul li a
+{
+	text-decoration:none;
+	color:#A9D6E5;
+}
+.menu ul li a#active-link,.menu ul li a:hover
+{
+	color:#fcd1d1;
+}
+
+.menu h1
+{
+	width :120px;
+	margin:5px;
+	padding:5px;
+	text-align:center;
+	color:#A9D6E5;
+	display :inline-flex;
+	float:left;
+	font-size:50px
+}
+
+footer
+{
+	
+	bottom:0;
+	background-color:#012A4A;
+	background-size:cover;
+	padding:30px 0 30px;
+	font-size:13px;
+	width:100%;
+	border-top-right-radius:50px;
+	border-top-left-radius:50px;
+	
+}
+.row
+{
+	width:85%;
+	margin:auto;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-between;
+}
+.col
+{
+	flex-basis:15%;
+	padding:10px;
+}
+.col ul li ,.col2 ul li
+{
+	list-style:none;
+	margin-bottom:12px;
+	text-align:left;
+}
+.col ul li a, .col2 ul li a
+{
+	text-decoration: none;
+	color:#fcd1d1;
+}
+.col h3
+{
+	text-align:left;
+	color:#A9D6E5;
+}
+.col2 ul
+{
+	display :inline-flex;
+	
+}
+.col2 ul li
+{
+	width :20px;
+	margin:5px;
+	padding:5px;
+	font-size:20px;
+	color: #fcd1d1;
+	text-decoration: none;
+	list-style:none;
+}
+#ALLRIGHTS
+{
+	color:#fcd1d1;
+	text-align: right;
+	margin-bottom: 0px;
+}
+
+

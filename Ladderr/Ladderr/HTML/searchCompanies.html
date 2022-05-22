@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Companies - Ladderr</title>
+    <link rel="stylesheet" href="../CSS/searchCompanies.css">
+    <script src="../JS/searchCompanies.js"></script>
+</head>
+<body>
+    
+    <div class="firstRowDiv">
+        <!-- #region Bread Crumb-->
+        <div class="breadCrumbStyle">
+            <a href="Home.html">Home > &nbsp;</a>  
+            <a href="Companies.html">Companies > &nbsp;</a> 
+            <a href="../HTML/searchCompanies.html">Search Companies</a> 
+        </div>
+        <!-- #endregion -->
+
+        <!-- #region Page title-->
+        <div class="PageTitleStyle">
+            <label>Search Results for&nbsp;</label>
+            <label id="SearchText" name="SearchText" ></label>
+        </div>
+        <!-- #endregion -->
+
+        <!-- #region Search bar -->
+        <div class="SearchbarDivStyle">
+            <form method="get" action="../PHP/searchCompanies.php" name="searchbarForm"  id="searchbarForm">
+                <input type="text" class="searchbarStyle" name="searchbar" id="searchbar" " >
+            </form>
+            <img src="../images/search.png" alt="search icon" width="50px" height="45px" 
+                    onclick="searchBtn(searchbarForm, searchbar)">
+        </div>
+        <!-- #endregion -->
+    </div>
+
+    <div class="secondRowDiv">
+        
+        <!-- #region Left filter grid-->
+        
+        <div class="leftFilterGridDiv">
+            <form action=""  method="get"  id="oneForm" >
+                <!-- #region JobType-->
+                <label>Job Type</label>
+                <div class="filterGridInnerDiv">
+                    <div>
+                        <input type="checkbox" name="JobType[]" id="fulltime" value="full" >
+                        <label for="fulltime">Full-Time</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="JobType[]" id="parttime" value="part" >
+                        <label for="parttime">Part-Time</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="JobType[]" id="internship" value="internship" >
+                        <label for="internship">Internship</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="JobType[]" id="contract" value="contract" >
+                        <label for="contract">Contract</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="JobType[]" id="freelance" value="freelance" >
+                        <label for="freelance">Freelance</label>
+                    </div>
+                </div>
+                <!-- #endregion -->
+                <hr width="100%">
+
+                <!-- #region Location-->
+                <label>Location</label>
+                <div class="filterGridInnerDiv" id="LocationDiv">
+                    <select name="location" id="locationSelect" class="experianceSelectStyle">
+                        <option value="">none</option>
+                    </select>
+                </div>
+                <!-- #endregion -->
+                <hr width="100%">
+
+                <!-- #region Experiance-->
+                <label>Experiance</label>
+                <div class="filterGridInnerDiv">
+                    <select name="experiance" id="experianceSelect" class="experianceSelectStyle">
+                        <option value="">none</option>
+                    </select>
+                </div>
+                <!-- #endregion -->
+                <hr width="100%">
+
+                <!-- #region Salary-->
+                    <label>Salary</label>
+                <div class="filterGridInnerDiv">
+                    <input type="number" name="salary" id="salaryRange" class="salaryinput">
+                </div>
+
+                <div class="rangeSelectedDiv">
+
+                    <label>>&nbsp;&nbsp;</label>
+                    <label id="SalaryText"></label>
+                    <label>&nbsp;&nbsp;LKR</label>
+                </div>
+
+                <!-- #region Filter-->
+                <div class="btnDivStyle">
+                        <input type="submit" name="filterBtn" value="Filter" class="filter">
+                </div>
+            </form>
+        </div>
+        <!-- #endregion -->
+        <!-- #endregion -->
+
+        <div class="SortJobsdiv">
+            <hr>
+            <!-- #region Jobs-->
+                <div id="AllJobsDiv" class="AllJobsDiv" >
+                    <div id="aJobDiv1" class="aJobDiv"  data-jobID="none" >
+                        
+                        <label id="companyName"></label>
+                        <label id="location"></label>
+                        <label id="noOfOpenings"></label>
+                        <label id="estabilished year"></label>
+                        <input type="submit" name="ViewJob" id="ViewJob" 
+                            value="View Details" class="saveView" onclick="goToJobPage(parentElement)">
+                    </div>
+                </div>
+            <!-- #endregion -->
+
+        </div>
+        
+    </div>
+</body>
+</html>
